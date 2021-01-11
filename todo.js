@@ -12,16 +12,16 @@ class Todos {
     todosArray.push(this.userTodo)
   }
 
-  set completed(todo) {
-    const searchTodo = todosArray.find(todos => todos.title === todo)
+  set completed(todoId) {
+    const searchTodo = todosArray.find(todo => todo.id === todoId)
 
     searchTodo.completed = true
   }
 
-  set remove (todo) {
-    const removeTodo = todosArray.findIndex(todos => todos.title === todo)
+  set remove (todoId) {
+    const removeTodo = todosArray.findIndex(todo => todo.id === todoId)
 
-    removeTodo > 0 ? todosArray.splice(removeTodo, 1) : ""
+    removeTodo > -1 ? todosArray.splice(removeTodo, 1) : null
   }
 }
 
@@ -30,9 +30,10 @@ const todo = new Todos();
 todo.add = "Abdulloh"
 todo.add = "Abdurahmon"
 todo.add = "Muhammadbobur"
+todo.add = "Muhammadbobur"
 
-todo.completed = "Abdurahmon"
+todo.completed = 2 // id bilan murojat qilamiz
 
-todo.remove = "Abdurahmon"
+todo.remove = 1
 
 console.log(todosArray);
